@@ -38,17 +38,19 @@
      _makeList = function(name, obj, depth) {
          var ul = $('<ul>').attr({'class':'neat-array depth-' + (depth + 1)});
          var li = $('<li>');
-         var title = $('<strong>').text(name);
-         var inner = obj;
+         var type = (obj === undefined) ? 'undefined' : ((obj === null) ? 'null' : (($.isArray(obj) ? 'array' : typeof(obj))));
+         var title = $('<strong>').text(name + ' [' + type + ']');
+         var inner;
          li.append(title);
-         if (typeof(obj) == 'object') {
+         if (type == 'object' || type == 'array') {
              $.each(obj, function(i, val) {
                         inner = _makeList(i, val, depth + 1);
                         ul.append(inner);
                     });
              li.append(ul);
          } else {
-             li.append(obj);
+             inner = (obj === undefined) ? 'undefined' : ((obj === null) ? 'null' : obj);
+             li.append(inner);
          }
          return li;
      };
