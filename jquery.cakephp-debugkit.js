@@ -8,6 +8,15 @@
  */
 (function($){
 
+     $.debugkit = function(name, obj) {
+         if (!_init() || !name) {
+             return false;
+         }
+         var content = _makeList(name, obj, 0);
+         $("ul#debug-kit-js").append(content);
+         return true;
+     };
+
      _init = function() {
          if (document.getElementById('debug-kit-js')) {
              return true;
@@ -23,18 +32,10 @@
              $('ul#panel-tabs').append(panel.append(panel_content.append(panel_content_data)));
              return true;
          }
-         return false
-     }
-
-     $.debugkit = function(obj, name) {
-         if (!_init()) {
-             return false;
-         }
-         var content = _makeList(obj, name, 0);
-         $("ul#debug-kit-js").append(content);
+         return false;
      };
 
-     _makeList = function(obj, name, depth) {
+     _makeList = function(name, obj, depth) {
          var ul = $('<ul>').attr({'class':'neat-array depth-' + (depth + 1)});
          var li = $('<li>');
          var title = $('<strong>').text(name);
@@ -42,7 +43,7 @@
          li.append(title);
          if (typeof(obj) == 'object') {
              $.each(obj, function(i, val) {
-                        inner = _makeList(val, i, depth + 1);
+                        inner = _makeList(i, val, depth + 1);
                         ul.append(inner);
                     });
              li.append(ul);
@@ -50,6 +51,6 @@
              li.append(obj);
          }
          return li;
-     }
+     };
 
  })(jQuery);

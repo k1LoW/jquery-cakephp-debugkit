@@ -1,0 +1,10 @@
+h1. 'CakePHP DebugKit Plugin' Plugin for jQuery
+
+h2. Require
+* "jQuery":http://jquery.com/
+* "DebugKit":http://thechaw.com/debug_kit
+
+h2. Usage
+# enable DebugKit.
+# use like this.
+<pre><code>$.debugkit('Valiable Name', value);</code></pre>
