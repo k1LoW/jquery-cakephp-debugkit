@@ -23,10 +23,10 @@
          }
          if (document.getElementById('panel-tabs')){
              var panel = $('<li>').attr({'class':'panel-tab'})
-                 .append($('<a>').attr({'href':'#debug-kit-js'}).text('JavaScript Valiables'));
+                 .append($('<a>').attr({'href':'#debug-kit-js'}).text('JavaScript Variables'));
              var panel_content = $('<div>').attr({'class':'panel-content'});
              var panel_content_data = $('<div>').attr({'class':'panel-content-data'})
-                 .append($('<h2>').text('JavaScript Valiables'))
+                 .append($('<h2>').text('JavaScript Variables'))
                  .append($('<ul>').attr({'class':'neat-array depth-0', 'id':'debug-kit-js'}));
 
              $('ul#panel-tabs').append(panel.append(panel_content.append(panel_content_data)));

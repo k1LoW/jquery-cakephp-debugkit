@@ -7,4 +7,4 @@ h2. Require
 h2. Usage
 # enable DebugKit.
 # use like this.
-<pre><code>$.debugkit('Value Name', value);</code></pre>
+<pre><code>$.debugkit('Variable Name', value);</code></pre>
