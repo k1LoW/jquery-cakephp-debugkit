@@ -17,6 +17,10 @@
          return true;
      };
 
+     $.clearVariables = function() {
+         $('ul#debug-kit-js').html('');
+     };
+
      _init = function() {
          if (document.getElementById('debug-kit-js')) {
              return true;
